@@ -44,7 +44,10 @@ const resolvers = {
         if (!match) {
           throw new Error("Username or password is incorrect");
         }
-        return "OK";
+        const payload = { user_id: user.id };
+        return jwt.sign(payload, privateKey, {
+          algorithm: "RS256"
+        });
       } catch (error) {
         return error.message;
       }
