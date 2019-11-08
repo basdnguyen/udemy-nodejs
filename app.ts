@@ -102,7 +102,7 @@ const server = new ApolloServer({
 });
 
 const app = express();
-app.use(express.static("build"));
+app.use(express.static("public"));
 
 server.applyMiddleware({ app });
 
